@@ -36,6 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   forui: ^0.8.0
   forui_assets: ^0.8.0
+  flutter_hooks: ^0.20.5
+  forui_hooks: ^0.8.0
+  flutter_riverpod: ^2.6.1
+  colorful_safe_area: ^1.0.0
 
 dev_dependencies:
   flutter_test:
