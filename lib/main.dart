@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:colorful_safe_area/colorful_safe_area.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:forui/forui.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +60,10 @@ class _UrlDetectorScreenState extends ConsumerState<UrlDetectorScreen>
     WidgetsBinding.instance.addObserver(this);
     // Start clipboard monitoring by calling the provider
     ref.read(clipboardProvider.notifier).checkClipboard();
+    FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+    flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>()!.requestNotificationsPermission();
   }
 
   @override
