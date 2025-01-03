@@ -1,27 +1,29 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:forui/forui.dart';
 import '../../controller/methods/local_methods/folder_notifier.dart';
+
 void createFolder(BuildContext context, WidgetRef ref) {
   final TextEditingController controller = TextEditingController();
 
-  showDialog(
+  showAdaptiveDialog(
     context: context,
     builder: (context) {
-      return AlertDialog(
+      return FDialog(
         title: Text('Create Folder'),
-        content: TextField(
+        body: FTextField(
           controller: controller,
-          decoration: InputDecoration(hintText: 'Folder Name'),
+          hint: "folder name",
         ),
         actions: [
-          TextButton(
-            onPressed: () {
-              ref.read(folderProvider.notifier).addFolder(controller.text.trim());
+          FButton(
+            onPress: () {
+              ref
+                  .read(folderProvider.notifier)
+                  .addFolder(controller.text.trim());
               Navigator.of(context).pop();
             },
-            child: Text('Create'),
+            label: Text('Create'),
           ),
         ],
       );
