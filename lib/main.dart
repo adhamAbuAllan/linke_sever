@@ -124,7 +124,8 @@ class _UrlDetectorScreenState extends ConsumerState<UrlDetectorScreen>
       await launch(url);
     } else {
       setState(() {
-        // Show error if URL cannot be launched
+        // Show error
+        // 1if URL cannot be launched
         ref.read(clipboardProvider.notifier).state = ref
             .read(clipboardProvider.notifier)
             .state
