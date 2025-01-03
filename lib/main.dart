@@ -57,13 +57,20 @@ class _UrlDetectorScreenState extends ConsumerState<UrlDetectorScreen>
   void initState() {
     super.initState();
     // Add lifecycle observer to monitor app state
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      setState(() {
+
+      });
+    });
     WidgetsBinding.instance.addObserver(this);
     // Start clipboard monitoring by calling the provider
     ref.read(clipboardProvider.notifier).checkClipboard();
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
-    flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>()!.requestNotificationsPermission();
+        FlutterLocalNotificationsPlugin();
+    flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()!
+        .requestNotificationsPermission();
   }
 
   @override
