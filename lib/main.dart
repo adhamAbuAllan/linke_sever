@@ -109,7 +109,7 @@ class _UrlDetectorScreenState extends ConsumerState<UrlDetectorScreen>
               ElevatedButton(
                 onPressed: () => _launchURL(clipboardState.copiedText),
                 child: Text(
-                  'Go to URL',
+                  'Go to url',
                   style: context.theme.typography.xl,
                 ),
               ),
